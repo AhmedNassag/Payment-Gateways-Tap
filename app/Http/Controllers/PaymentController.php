@@ -11,16 +11,17 @@ class PaymentController extends Controller
 
     public function __construct(PaymentGatewayInterface $paymentGateway)
     {
-
         $this->paymentGateway = $paymentGateway;
     }
 
 
+
     public function paymentProcess(Request $request)
     {
-
         return $this->paymentGateway->sendPayment($request);
     }
+
+
 
     public function callBack(Request $request): \Illuminate\Http\RedirectResponse
     {
@@ -36,12 +37,13 @@ class PaymentController extends Controller
 
     public function success()
     {
-
         return view('payment-success');
     }
+
+
+
     public function failed()
     {
-
         return view('payment-failed');
     }
 }
